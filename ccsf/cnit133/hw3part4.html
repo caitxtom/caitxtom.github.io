@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CNIT 133 Homework 3 Part 4</title>
+    <meta charset="utf-8">
+    <meta name="description" content="homework 3 part 4 for CNIT 133 homework assignments">
+    <meta name="keywords" content="HTML, CSS, CNIT, CCSF, web, webpage, javascript, js">
+    <style>
+        .grid {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 1fr 4fr;
+            grid-template-rows: 0.5fr 2fr 0.5fr;
+            grid-template-areas: "title header" "menulist mc" "footer footer";
+            margin: 10px auto;
+        }
+        .grid-area {
+            font-family: Georgia, Garamond, serif;
+            background-color: #f3f1f6;
+            color: black;
+            padding: 25px 25px;
+        }
+        .grid-area-1 { grid-area: title; text-align: center;}
+        .grid-area-2 { grid-area: menulist; text-align: left; }
+        .grid-area-3 { grid-area: mc; text-align: left;}
+        .grid-area-4 { grid-area: footer; text-align: center;} 
+        .grid-area-5 { grid-area: header; text-align: left;}
+
+        input[type='number']{
+            width: 50px;
+        } 
+    </style>
+
+    <script>
+        var number1 = 0;
+        var number2 = 0;
+        var rightAnswer = 0;
+
+        function initialize() {
+            number1 = Math.floor(Math.random() * 10);
+            number2 = Math.floor(Math.random() * 10);
+            rightAnswer = number1 * number2;
+
+            document.forms["myform"].elements["num1"].value = number1;
+            document.forms["myform"].elements["num2"].value = number2;
+            document.forms["myform"].elements["answer"].value = ("");
+            document.forms["myform"].elements["comments"].value = ("");
+        }
+
+        function check() {
+            var inputAnswer = parseInt(document.forms["myform"].elements["answer"].value);
+            if (rightAnswer == inputAnswer) {
+                document.forms["myform"].elements["comments"].value = ("Very good!\nWould you like to continue?");
+                document.forms["myform"].elements["answer"].value = ("");
+                document.forms["myform"].elements["num1"].value = ("");
+                document.forms["myform"].elements["num2"].value = ("");
+            } else {
+                document.forms["myform"].elements["comments"].value = ("No. Please try again.");
+                document.forms["myform"].elements["answer"].value = ("");
+                document.forms["myform"].elements["num1"].value = number1;
+                document.forms["myform"].elements["num2"].value = number2;
+            }
+        }
+
+        function reject() {
+            document.forms["myform"].elements["comments"].value = ("Thank you! Click the RESET button or reload the page to continue.");
+            document.forms["myform"].elements["answer"].value = ("");
+            document.forms["myform"].elements["num1"].value = ("");
+            document.forms["myform"].elements["num2"].value = ("");
+        }
+    </script>
+</head>
+
+<body onload="initialize()">
+    <div class="grid">
+    <header class="grid-area grid-area-1">
+        <p><a href="favicon-32x32.png"><img src="favicon-32x32.png" width="40" alt="logo with initials CT in purple background"></a></p>
+        <p>CNIT 133 Homework</p>
+        <p>by Caitlin Tom</p>
+    </header>
+        <nav class="grid-area grid-area-2">
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                <li style="margin: 20px 0"><a href="index.html">Home</a></li>
+                <li style="margin: 20px 0"><a href="hw2.html">Homework 2</a></li>
+                <li style="margin: 20px 0"><a href="hw3.html">Homework 3</a></li>
+                <li style="margin: 20px 0">- <a href="hw3part1.html">Part 1</a></li>
+                <li style="margin: 20px 0">- <a href="hw3part2.html">Part 2</a></li>
+                <li style="margin: 20px 0">- <a href="hw3part3.html">Part 3</a></li>
+                <li style="margin: 20px 0">- Part 4</li>
+            </ul>
+        </nav>
+        <section class="grid-area grid-area-5">
+            <h2>CNIT 133 Homework 3 - Functions - Part 4</h2>
+        </section>
+        <section class="grid-area grid-area-3">
+            <h3>Output</h3>
+            <form name="myform">
+                <table>
+                    <tr>
+                        <td>How much is <input type="number" readonly name="num1"> times <input type="number" readonly name="num2">?</td>
+                    </tr>
+                    <tr>
+                        <td>Answer: <input type="number" name="answer"> <input type="button" onclick="check()" value="Submit"></td>
+                    </tr>
+                    <tr>
+                        <td><br><br>Comments:</td>
+                    </tr>
+                    <tr>
+                        <td><textarea rows="5" cols="40" name="comments"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" onclick="initialize()" value="Confirm"> <input type="button" onclick="reject()" value="Reject"></td>
+                    </tr>
+                </table>
+                <br>
+                <input type="button" value="RESET" onclick="initialize()">
+            </form>
+        </section>
+        <footer class="grid-area grid-area-4">
+            <p>Copyright &copy; 2022 Caitlin Tom</p>
+            <p>For questions: <a href="mailto:ctom41@mail.ccsf.edu">Send Email</a> to ctom41@mail.ccsf.edu</p>
+        </footer>
+    </div>
+</body>
+</html>
