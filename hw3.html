@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CNIT 133 Homework 3</title>
+    <meta charset="utf-8">
+    <meta name="description" content="homework 2 for CNIT 133 homework assignments">
+    <meta name="keywords" content="HTML, CSS, CNIT, CCSF, web, webpage, javascript, js, jquery, ajax">
+    <style>
+        .grid {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 1fr 4fr;
+            grid-template-rows: 0.5fr 2fr 0.5fr;
+            grid-template-areas: "title header" "menulist mc" "footer footer";
+            margin: 10px auto;
+        }
+        .grid-area {
+            font-family: Georgia, Garamond, serif;
+            background-color: #f3f1f6;
+            color: black;
+            padding: 25px 25px;
+        }
+        .grid-area-1 { grid-area: title; text-align: center;}
+        .grid-area-2 { grid-area: menulist; text-align: left; }
+        .grid-area-3 { grid-area: mc; text-align: left;}
+        .grid-area-4 { grid-area: footer; text-align: center;} 
+        .grid-area-5 { grid-area: header; text-align: left;}
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+    <header class="grid-area grid-area-1">
+        <p><a href="favicon-32x32.png"><img src="favicon-32x32.png" width="40" alt="logo with initials CT in purple background"></a></p>
+        <p>CNIT 133 Homework</p>
+        <p>by Caitlin Tom</p>
+    </header>
+        <nav class="grid-area grid-area-2">
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                <li style="margin: 20px 0"><a href="hw1.html">Home</a></li>
+                <li style="margin: 20px 0"><a href="hw2.html">Homework 2</a></li>
+                <li style="margin: 20px 0"><a href="hw3.html">Homework 3</a></li>
+                    <li style="margin: 20px 0">- <a href="hw3part1.html">Part 1</a></li>
+                    <li style="margin: 20px 0">- <a href="hw3part2.html">Part 2</a></li>
+                    <li style="margin: 20px 0">- <a href="hw3part3.html">Part 3</a></li>
+                    <li style="margin: 20px 0">- <a href="hw3part4.html">Part 4</a></li>
+            </ul>
+        </nav>
+        <section class="grid-area grid-area-5">
+            <h2>CNIT 133 Homework 3 - Functions</h2>
+        </section>
+        <section class="grid-area grid-area-3">
+            <h3>Parts</h3>
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                <li style="margin: 10px 0"><a href="hw3part1.html">Part 1</a>: a webpage that contains the heading, Student Grades, and inputs a student's homework average, mid-term exam score, final exam score, and participation (all those grades will be entered as integers). </li>
+                <li style="margin: 10px 0"><a href="hw3part2.html">Part 2</a>: a webpage that contains a script that includes at the top of your form  a text box for the salesperson's name for the user to enter, input that salesperson's items sold and calculates how much the salesperson sold and how much they earned, and then output the results.</li>
+                <li style="margin: 10px 0"><a href="hw3part3.html">Part 3</a>: a webpage that converts the temperature entered by the user, using the right function to convert from C to F or from F to C.</li>
+                <li style="margin: 10px 0"><a href="hw3part4.html">Part 4</a>: a webpage that contains a program that will help an elementary school student learn multiplication.</li>
+            </ul>
+        </section>
+        <footer class="grid-area grid-area-4">
+            <p>Copyright &copy; 2022 Caitlin Tom</p>
+            <p>For questions: <a href="mailto:ctom41@mail.ccsf.edu">Send Email</a> to ctom41@mail.ccsf.edu</p>
+        </footer>
+    </div>
+</body>
+</html>

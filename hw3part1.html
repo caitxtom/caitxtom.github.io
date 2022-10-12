@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CNIT 133 Homework 3 Part 1</title>
+    <meta charset="utf-8">
+    <meta name="description" content="homework 3 part 1 for CNIT 133 homework assignments">
+    <meta name="keywords" content="HTML, CSS, CNIT, CCSF, web, webpage, javascript, js">
+    <style>
+        .grid {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 1fr 4fr;
+            grid-template-rows: 0.5fr 2fr 0.5fr;
+            grid-template-areas: "title header" "menulist mc" "footer footer";
+            margin: 10px auto;
+        }
+        .grid-area {
+            font-family: Georgia, Garamond, serif;
+            background-color: #f3f1f6;
+            color: black;
+            padding: 25px 25px;
+        }
+        .grid-area-1 { grid-area: title; text-align: center;}
+        .grid-area-2 { grid-area: menulist; text-align: left; }
+        .grid-area-3 { grid-area: mc; text-align: left;}
+        .grid-area-4 { grid-area: footer; text-align: center;} 
+        .grid-area-5 { grid-area: header; text-align: left;}
+
+        input {
+            width: 80px;
+        }
+    </style>
+
+    <script>
+        function calculate() {
+            var homeworkAvg, midtermScore, finalScore, partScore, finalAvg;
+
+            homeworkAvg = parseInt(document.forms["myform"].elements["avg1"].value);
+            midtermScore = parseInt(document.forms["myform"].elements["mid1"].value);
+            finalScore = parseInt(document.forms["myform"].elements["fin1"].value);
+            partScore = parseInt(document.forms["myform"].elements["par1"].value);
+
+            if ((homeworkAvg >= 0) && (homeworkAvg <= 100) && (midtermScore >= 0) && (midtermScore <= 100) && (finalScore >= 0) && (finalScore <= 100) && (partScore >= 0) && (partScore <= 100)) {
+                finalAvg = Math.round((0.5 * homeworkAvg) + (0.2 * midtermScore) + (0.2 * finalScore) + (0.1 * partScore));
+                document.forms["myform"].elements["fin_avg"].value = finalAvg;
+            } else {
+                document.forms["myform"].elements["fin_avg"].value = ("ERROR!")
+                document.forms["myform"].elements["let_grade"].value = ("ERROR!")
+                document.forms["myform"].elements["comments"].value = ("Enter valid numbers between 1 and 100.");
+            }
+
+            switch (true) {
+                case ((finalAvg >= 90) && (finalAvg <= 100)):
+                    document.forms["myform"].elements["let_grade"].value = ("A");
+                    document.forms["myform"].elements["comments"].value = ("");
+                    break;
+                case ((finalAvg >= 80) && (finalAvg <= 89)):
+                    document.forms["myform"].elements["let_grade"].value = ("B");
+                    document.forms["myform"].elements["comments"].value = ("");
+                    break;
+                case ((finalAvg >= 70) && (finalAvg <= 79)):
+                    document.forms["myform"].elements["let_grade"].value = ("C");
+                    document.forms["myform"].elements["comments"].value = ("");
+                    break;
+                case ((finalAvg >= 60) && (finalAvg <= 69)):
+                    document.forms["myform"].elements["let_grade"].value = ("D");
+                    document.forms["myform"].elements["comments"].value = ("Student must retake the course.");
+                    break;
+                case ((finalAvg >= 0) && (finalAvg <= 59)):
+                    document.forms["myform"].elements["let_grade"].value = ("F");
+                    document.forms["myform"].elements["comments"].value = ("Student must retake the course.");
+                    break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="grid">
+    <header class="grid-area grid-area-1">
+        <p><a href="favicon-32x32.png"><img src="favicon-32x32.png" width="40" alt="logo with initials CT in purple background"></a></p>
+        <p>CNIT 133 Homework</p>
+        <p>by Caitlin Tom</p>
+    </header>
+        <nav class="grid-area grid-area-2">
+            <ul style="list-style-type: none; padding: 0; margin: 0;">
+                <li style="margin: 20px 0"><a href="hw1.html">Home</a></li>
+                <li style="margin: 20px 0"><a href="hw2.html">Homework 2</a></li>
+                <li style="margin: 20px 0"><a href="hw3.html">Homework 3</a></li>
+                <li style="margin: 20px 0">- Part 1</li>
+                <li style="margin: 20px 0">- <a href="hw3part2.html">Part 2</a></li>
+                <li style="margin: 20px 0">- <a href="hw3part3.html">Part 3</a></li>
+                <li style="margin: 20px 0">- <a href="hw3part4.html">Part 4</a></li>
+            </ul>
+        </nav>
+        <section class="grid-area grid-area-5">
+            <h2>CNIT 133 Homework 3 - Functions - Part 1</h2>
+        </section>
+        <section class="grid-area grid-area-3">
+            <h3>Student Grades</h3>
+            <form name="myform">
+                <table>
+                    <tr>
+                        <td>Homework Average:</td>
+                        <td><input type="number" name="avg1"></td>
+                    </tr>
+                    <tr>
+                        <td>Midterm Exam Score:</td>
+                        <td><input type="number" name="mid1"></td>
+                    </tr>
+                    <tr>
+                        <td>Final Exam Score:</td>
+                        <td><input type="number" name="fin1"></td>
+                    </tr>
+                    <tr>
+                        <td>Participation:</td>
+                        <td><input type="number" name="par1"></td>
+                    </tr>
+                    </table>
+                    <br>
+                    <table>
+                    <tr>
+                        <td>Final Average:</td>
+                        <td><input type="number" readonly name="fin_avg"></td>
+                    </tr>
+                    <tr>
+                        <td>Letter Grade:</td>
+                        <td><input type="text" readonly name="let_grade"></td>
+                    </tr>
+                </table>
+                <br> Comments:
+                <textarea rows="2" cols="40" name="comments"></textarea>
+                <br><br>
+                <input type="button" onclick="calculate()" value="SUBMIT">
+                <input type="reset" value="RESET">
+            </form>
+        </section>
+        <footer class="grid-area grid-area-4">
+            <p>Copyright &copy; 2022 Caitlin Tom</p>
+            <p>For questions: <a href="mailto:ctom41@mail.ccsf.edu">Send Email</a> to ctom41@mail.ccsf.edu</p>
+        </footer>
+    </div>
+</body>
+</html>
