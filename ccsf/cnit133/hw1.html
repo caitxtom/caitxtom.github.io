@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CT Home</title>
+    <meta charset="utf-8">
+    <meta name="description" content="homepage and portfolio for web development projects and courses">
+    <meta name="keywords" content="home, portfolio, web development, html, css, javascript">
+    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
+
+    <style>
+        body {
+            background-color: #bdacd6;
+            font-family: sans-serif;
+        }
+
+        .grid {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas:
+                ". header header ."
+                ". nav nav ."
+                ". main main ."
+                /* ". other other ." */
+                ". footer footer .";
+            margin: 0 auto;
+        }
+        .grid-area {
+            padding: 5px 15px;
+            font-size: 12px;
+            color: black;
+        }
+        .grid-area-1 { 
+            grid-area: header; 
+            padding-top: 0; 
+            padding-bottom: 0;
+            background-color: #bdacd6; 
+            font-weight:bold; 
+            font-size: 15px; 
+        }
+        .grid-area-2 { 
+            grid-area: nav; 
+            display: inline-block;
+            margin: 0; /*CSS Reset, background-color covers full area*/
+            background-color:#b5a1d3; 
+            font-size: 15px;
+            /* text-align: center; */
+        }
+        /* .grid-area-3 { grid-area: main; text-align: left; background-color: lightgoldenrodyellow; border: 5px double gray} */
+        .grid-area-3 { grid-area: main;  background-color: #b5a1d3; text-align: left; }
+        .grid-area-4 { grid-area: other;  background-color: lightgray; text-align: center; } 
+        .grid-area-5 { grid-area: footer; background-color: #bdacd6; font-size:12px; text-align: center; }
+
+        .float-left { float: left; }
+        .float-right {
+            float: right;
+            font-style: italic;
+            font-weight: lighter;
+            font-size: 15px;
+        }
+        .current {  padding: 10px 10px; font-weight: bold; text-decoration: none; }
+        /* nav {display:block; text-align:center;} */
+        nav ul li { 
+            display: inline;
+            /* margin: auto 10px auto 10px; */
+            /* padding: 5px 5px; */
+            padding: 10px 3px;
+            background-color: #bdacd6; 
+            /* text-align: center; */
+            text-decoration: underline;
+        }
+        nav ul li a { padding: 10px;}
+        nav ul li a:hover { color: blue; text-decoration: underline; }
+        a:link, a:visited, a:active { color: black; }
+        a:hover { color: blue; text-decoration: underline; }
+
+        a { text-decoration: underline; }
+        table, th, td { padding: 5px; border: 1px solid black; border-collapse: collapse; }
+        /* .list-desc { list-style-type: none } */
+        .assignments {font-size:14px;}
+        .assignments li:nth-child(even) {list-style-type:none;}
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- jQuery -->
+    <script>
+        $( function() {
+            $( "#tabs" ).tabs();
+        } );
+    </script>
+
+</head>
+<body>
+    <div class="grid">
+        <header class="grid-area grid-area-1">
+            <h3 class="float-left">CAITLIN TOM</h3>
+            <h4 class="float-right">CCSF CNIT 133 - JavaScript, jQuery, AJAX</h4>
+        </header>
+        <nav class="grid area grid-area-2">
+            <!-- <ul>
+                <li class="dropdown">
+                    <button class="dropbtn">
+                        <a href="index.html">HOME</a>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="cnit131ahw1.html">CNIT 131A</a>
+                        <a href="cnit132ahw1.html">CNIT 132A</a>
+                        <a href="cnit133hw1.html">CNIT 133</a>
+                    </div>
+                </li>
+                <li><a href="cnit133hw1.html">HW 1</a></li>
+                <li><a href="cnit133hw2.html">HW 2</a></li>
+                <li><a href="cnit133hw3.html">HW 3</a></li>
+                <li><a href="cnit133hw4.html">HW 4</a></li>
+                <li><a href="cnit133hw5.html">HW 5</a></li>
+                <li><a href="cnit133hw6.html">HW 6</a></li>
+                <li><a href="cnit133hw7.html">HW 7</a></li>
+                <li><a href="cnit133hw8.html">HW 8</a></li>
+            </ul> -->
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <!-- <li><a href="cnit133ahw1.html">HW 1</a></li> -->
+                <li class="current">HW 1</li>
+                <li><a href="hw2.html">HW 2</a></li>
+                <li><a href="hw3.html">HW 3</a></li>
+                <li><a href="hw4.html">HW 4</a></li>
+                <li><a href="hw5.html">HW 5</a></li>
+                <li><a href="hw6.html">HW 6</a></li>
+                <li><a href="hw7.html">HW 7</a></li>
+                <li><a href="hw8.html">HW 8</a></li>
+            </ul>
+        </nav>
+        <main class="grid-area grid-area-3">
+            <h2 style="text-align:center">Homework 1: Assignments List</h2>
+            <hr>
+            <ul class="assignments">
+                <li><a href="hw1.html">Homework 1</a>: CNIT 133 Homework Page</li>
+                <li>Create a web page, using HTML5
+                    <!-- , with the following:
+                    <ul>
+                        <li>Heading that says CNIT 133 Homework Contents of this page should be a list of the numbered homework assignments</li>
+                        <li>In this list, you will eventually link to completed assignments during the semester as you complete and upload the corresponding assignments.</li>
+                        <li>Your list could be a nav if you know how to do this. If not, we'll do it in a future assignment. Please list Homework 2 through Homework 8. Homework 1 will not be listed as this web page represents Homework 1.</li>
+                        <li>Embellish this page with some CSS (background color, and/or background image, and/or different font type/size/color, you can think about making each link look like a button, etc.)</li>
+                    </ul> -->
+                </li>
+                <li ><a href="./ccsf/cnit133/hw2.html">Homework 2</a>: Basic Operations</li>
+                <li>Create pages for scripts using document.write statements, and counts</li>
+            </ul>
+        </main>
+        <!-- <other class="grid-area grid-area-4"></other> -->
+        <footer class="grid-area grid-area-5">
+            Copyright &copy; 2022 Caitlin Tom
+            <br>For questions: <a href="mailto:ctom41@mail.ccsf.edu">Send Email</a> to ctom41@mail.ccsf.edu
+        </footer>
+    </div>
+</body>
+</html>
