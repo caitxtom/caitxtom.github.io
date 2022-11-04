@@ -17,3 +17,13 @@ states {
 east|state {
     background-color: lightcoral;
 }
+
+/* Other possibility */
+/* state {
+    display: block;
+}
+
+east|state {
+    display: block;
+    background-color: lightcoral;
+} */
