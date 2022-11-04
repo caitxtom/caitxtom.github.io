@@ -1,0 +1,18 @@
+books { 
+    background-color: lightgray; 
+    font-family: Verdana, Times, sans-serif; 
+}
+
+book, name, author, publisher { 
+    display: grid; 
+    grid-template-columns: repeat(3, 300px)
+}
+
+name { 
+    font-weight: bold; 
+    color: red; 
+}
+
+book:nth-child(odd) { 
+    background-color: lightblue; 
+}

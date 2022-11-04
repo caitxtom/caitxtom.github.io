@@ -1,0 +1,19 @@
+@namespace "http://www.gov.org/west";
+@namespace east "http://www.gov.org/east";
+
+states {
+    background-color: lightblue;
+}
+
+/* state, east|state {
+    display: block;
+} */
+
+/* any namespace */
+*|state {
+    display: block;
+}
+
+east|state {
+    background-color: lightcoral;
+}
