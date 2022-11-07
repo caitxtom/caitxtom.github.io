@@ -102,7 +102,7 @@
         <main class="grid-area grid-area-3">
             <h2 style="text-align:center">Homework 8: XML and XQuery Report</h2>
             <hr>
-            <p>XQuery, shorthand for XML Query Language, is to XML data what SQL is to databases. Its main function is to query XML data, meaning it finds and extracts data (elements and attributes) from XML documents.</p>
+            <p>XQuery, shorthand for XML Query Language, is to XML data what SQL is to databases. Its main function is to query XML data, meaning it finds and extracts data (elements and attributes) from XML documents.  It only uses four keywords for its expressions: <strong>let</strong>, <strong>for</strong>, <strong>where</strong>, and <strong>return</strong>, making it easier to construct. Although it has simple wording, it only filters out the needed data after everything has already been selected. It is simple and flexible in that it can access multiple documents, but can be inefficient at times.</p>
             <p>Take the files <a href="hw8.xml">hw8.xml</a> and <a href="hw8.xq">hw8.xq</a> for example. The XQuery file hw8.xq is the query to find and return all book titles with a price less than $30 from hw8.xml. Here is a breakdown of each line of code:</p>
             <p>The <strong>for</strong> clause selects all book elements under the bookstore element into a variable called <strong>$b</strong>. The <strong>where</strong> clause acts as a filter that selects price elements from book elements and a price element with a value less than 30. Again, the variable <strong>$b</strong> holds all book elements' information. Finally, the <strong>return</strong> clause specifies what elements or data should be extracted from the document. Here it returns the title elements. The result would be</p>
             <pre>
@@ -143,6 +143,7 @@
             <hr>
             <h3>References</h3>
             <p>CCSF Lecture 8 - <a href="https://ccsf.instructure.com/courses/50278/pages/topic-8-lecture?module_item_id=3123937">https://ccsf.instructure.com/courses/50278/pages/topic-8-lecture?module_item_id=3123937</a></p>
+            <p><a href="https://www.codemag.com/Article/0305091/XQuery-the-Query-Language-of-the-Future">https://www.codemag.com/Article/0305091/XQuery-the-Query-Language-of-the-Future</a></p>
             <p><a href="https://cs.brown.edu/people/tkraska/pub/www09-xqib.pdf">https://cs.brown.edu/people/tkraska/pub/www09-xqib.pdf</a></p>
             <p>W3Schools - <a href="https://www.w3schools.com/xml/xquery_example.asp">https://www.w3schools.com/xml/xquery_example.asp</a></p>
             <p><a href="http://www.xqib.org/">http://www.xqib.org/</a></p>
