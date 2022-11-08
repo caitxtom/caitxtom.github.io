@@ -1,1 +1,402 @@
-Hello world!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CT CNIT 133, HW 5</title>
+    <meta charset="utf-8">
+    <meta name="description" content="homepage and portfolio for web development projects and courses">
+    <meta name="keywords" content="home, portfolio, web development, html, css, javascript">
+    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
+
+    <style>
+        body {
+            background-color: #bdacd6;
+            font-family: sans-serif;
+        }
+
+        .grid {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas:
+                ". header header ."
+                ". nav nav ."
+                ". main main ."
+                /* ". other other ." */
+                ". footer footer .";
+            margin: 0 auto;
+            width: 50em;
+        }
+        .grid-area {
+            padding: 5px 15px;
+            font-size: 15px;
+            color: black;
+        }
+        .grid-area-1 { 
+            grid-area: header; 
+            padding-top: 0; 
+            padding-bottom: 0;
+            background-color: #bdacd6; 
+            font-weight:bold; 
+            font-size: 15px; 
+        }
+        .grid-area-2 { 
+            grid-area: nav; 
+            display: inline-block; 
+            margin: 0; /*CSS Reset, background-color covers full area*/
+            background-color:#b5a1d3; 
+            font-size: 15px;
+            text-align: center;
+        }
+        .grid-area-3 { grid-area: main;  background-color: #b5a1d3; text-align: left; }
+        .grid-area-4 { grid-area: other;  background-color: lightgray; text-align: center; } 
+        .grid-area-5 { grid-area: footer; background-color: #bdacd6; font-size:12px; text-align: center; }
+
+        .float-left { float: left; }
+        .float-right {
+            float: right;
+            font-style: italic;
+            font-weight: lighter;
+            font-size: 15px;
+        }
+        .current { padding: 10px 20px; font-weight: bold; text-decoration: none; }
+        
+        nav ul { padding-left: 0 }
+        nav ul li { 
+            display: inline-block;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding: 10px 10px;
+            background-color: #bdacd6; 
+            text-align:center;
+            text-decoration: underline;
+        }
+        a:link, a:visited, a:active { color: black; text-decoration: underline; }
+        a:hover { color: blue; text-decoration: underline; }
+        nav ul li a{ padding: 10px;}
+        nav ul li a:hover { color: blue; text-decoration: underline; }
+        main a:link, a:visited, a:active { color: black; text-decoration: underline; }
+        main a:hover { color: blue; text-decoration: underline; }
+        footer a:link, a:visited, a:active { color: black; text-decoration: none; }
+
+        .error {
+            font:normal 14px arial;
+            padding: 3px; 
+            margin: 3px; 
+            color: red; 
+            background-color: #ffc;
+            /* display:block; */
+        }
+
+        form {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        #sex { padding: 5px; border: 1px solid black; }
+        #language { padding: 5px; border: 1px solid black; }
+
+        #info {padding: 10px;text-align: center;}
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- Validation -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+    <!-- jQuery -->
+    <script>
+        $( function() {
+            $( "#tabs" ).tabs();
+        } );
+    </script>
+
+    <!-- Part 1 -->
+    <script>
+        $(document).ready(function(){
+            $("#myform").validate({
+                rules: {
+                    name: {required: true},
+                    sex: {required:true},
+                    language: {required:true},
+                    state: {required:true}
+                },
+                messages: {
+                    name: "Please enter a name",
+                    sex: "Please select your sex",
+                    language: "Please select at least one language",
+                    state: "Please select your home state",
+                },
+                errorPlacement: function(error, element) {
+                    if ( element.is(":text") || element.is(":radio") || element.is(":checkbox") ) {
+                        error.appendTo( element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                }
+	        });	  
+        });
+
+        function process() {
+            if ($("#myform").valid()) {
+                // document.forms["myform"].elements["comment"].value =  "Thank you for your input.";
+                document.getElementById("comment").innerHTML = "<br><p style=\"color:red;font-weight:bold;\">Thank you for your input.</p>";
+            }
+        }
+
+    </script>
+
+    <!-- Part 2 -->
+    <script>
+        // .options[0].value returns 1st option as string
+        // .selectedIndex returns number option selected
+        // ... .options[... .selectedIndex].value to access selected option
+        function onChangeEvent(myForm) {
+            // var initial = window.location.pathname;
+            // var mySelected = myForm.hw5parts.options[myForm.hw5parts.selectedIndex].value;
+            // var myDestination = location.replace(initial + mySelected);
+            // window.location = myDestination;
+
+            var myDestination = myForm.hw5parts.options[myForm.hw5parts.selectedIndex].value;
+            window.location = myDestination;
+        }
+        function onClickEvent(myForm) {
+            // var initial = window.location.pathname;
+            // var mySelected = myForm.allhw.options[myForm.allhw.selectedIndex].value;
+            // var myDestination = location.replace(initial + mySelected);
+            // window.location = myDestination;
+
+            var myDestination = myForm.allhw.options[myForm.allhw.selectedIndex].value;
+            window.location = myDestination;
+        }
+    </script>
+
+    <!-- Part 3 -->
+    <script>
+        var statesArray = [
+            ["AL","ALABAMA","Montgomery","4,887,871"],
+            ["AK","ALASKA","Juneau","737,438"],
+            ["AZ","ARIZONA","Phoenix","7,171,646"],
+            ["AR","ARKANSAS","Little Rock","3,010,825"],
+            ["CA","CALIFORNIA","Sacramento","39,557,045"],
+            ["CO","COLORADO","Denver","5,694,564"]
+        ];
+
+        function getStateInfo() {
+            var input = (document.forms["stateInfo"].elements["state"].value).toUpperCase();
+            var foundState = false;
+            var row;
+
+            // array dimensions: [6][4]
+            // traversed all elements even though only need first two columns [i][0 || 1]
+            for (var i=0; i<statesArray.length; i++) {
+                for (var j=0; j<statesArray[0].length; j++) {
+                    if (statesArray[i][j] == input) {
+                        foundState = true;
+                        document.getElementById("info").innerHTML = (
+                            "<strong>Thanks for your inquiry, here is the information you requested</strong>" +
+                            "<br><br>State abbr: " + statesArray[i][0] +
+                            "<br>State name: " + statesArray[i][1] + 
+                            "<br>Capital: " + statesArray[i][2] + 
+                            "<br>Population: " + statesArray[i][3]
+                            );
+                        break;
+                    }
+                }
+                if (foundState == true) {
+                    break;
+                }
+            }
+            if (foundState == false) {
+                document.getElementById("info").innerHTML = "<span style=\"color:red;font-weight:bold\">State not found!<br>Please enter a state from the given list.</span>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="grid">
+        <header class="grid-area grid-area-1">
+            <h3 class="float-left">CAITLIN TOM</h3>
+            <h4 class="float-right">CCSF CNIT 133 - JavaScript, jQuery, AJAX</h4>
+        </header>
+        <nav class="grid area grid-area-2">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="hw1.html">HW 1</a></li>
+                <li><a href="hw2.html">HW 2</a></li>
+                <li><a href="hw3.html">HW 3</a></li>
+                <li><a href="hw4.html">HW 4</a></li>
+                <li class="current">HW 5</li>
+                <li><a href="hw6.html">HW 6</a></li>
+                <li><a href="hw7.html">HW 7</a></li>
+                <li><a href="hw8.html">HW 8</a></li>
+            </ul>
+        </nav>
+        <main class="grid-area grid-area-3">
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Part 1</a></li>
+                    <li><a href="#tabs-2">Part 2</a></li>
+                    <li><a href="#tabs-3">Part 3</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <h3>Part 1</h3>
+                    <p>Create a webpage containing a form that displays an input text box, radio buttons, checkboxes, and select items; along with a script that executes form validation.</p>
+                    <h3>Output</h3>
+                    <form id="myform" name="myform">
+                        <div>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name">
+                        </div>
+            
+                        <br>
+            
+                        <div>
+                            Sex:<br>
+                            <div id="sex">
+                                <input type="radio" id="male" name="sex" value="male"><label for="male">Male</label>
+                                <input type="radio" id="female" name="sex" value="female"><label for="female">Female</label>
+                                <input type="radio" id="nonbinary" name="sex" value="nonbinary"><label for="nonbinary">Non-binary</label>
+                                <input type="radio" id="trans" name="sex" value="trans"><label for="trans">Transgender</label>
+                                <input type="radio" id="intersex" name="sex" value="intersex"><label for="intersex">Intersex</label>
+                                <input type="radio" id="notsay" name="sex" value="notsay"><label for="notsay">I prefer not to say</label>
+                            </div>
+                        </div>
+            
+                        <br>
+            
+                        <div>
+                            Language(s) Spoken At Home:<br>
+                            <div id="language">
+                                <input type="checkbox" id="english" name="language" value="English"><label for="english">English</label>
+                                <input type="checkbox" id="spanish" name="language" value="Spanish"><label for="spanish">Spanish</label>
+                                <input type="checkbox" id="mandarin" name="language" value="Mandarin"><label for="mandarin">Chinese (Mandarin)</label>
+                                <input type="checkbox" id="cantonese" name="language" value="Cantonese"><label for="cantonese">Chinese (Cantonese)</label>
+                                <input type="checkbox" id="other" name="language" value="Other"><label for="other">Other</label><br>
+                            </div>
+                        </div>
+            
+                        <br>
+            
+                        <label for="state">Choose your home state in the USA: </label>
+                        <select id="state" name="state">
+                            <option value>---</option>
+                            <option value="CA">California</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                            <option value="other">Not in the USA</option>
+                        </select>
+        
+                        <br><br>
+        
+                        <input type="button"  onclick="process()" value="SUBMIT">
+                        <input type="reset" value="RESET" onClick="window.location.reload();">
+                        
+                        <br>
+                        <!-- <br> -->
+                        
+                        <!-- Comment: <textarea name="comment" readonly cols="60" rows="2"></textarea> -->
+                        <div id="comment"></div>
+                    </form>
+                </div>
+                <div id="tabs-2">
+                    <h3>Part 2</h3>
+                    <p>Create a 2nd webpage that contains a script that utilizes 2 pulldown menus. The first one should utilize an onchange event handler. The second should utilize a button with an onclick event handler to navigate to a page after an option is selected. Each pulldown menu should include at least 3 URL destinations.</p>
+                    <h3>Output</h3>
+                    <!-- onchange event handler -->
+                    <form name="menu1">
+                        Select from the list below to navigate to all parts of Homework 5.<br>
+                        <select id="hw5" name="hw5parts" onchange="onChangeEvent(this.form);">
+                            <option value>Select HW 5 Part</option>
+                            <option value="https://caitxtom.github.io/ccsf/cnit133/hw5.html#tabs-1">Part 1</option>
+                            <option value="https://caitxtom.github.io/ccsf/cnit133/hw5.html#tabs-2">Part 2</option>
+                            <option value="https://caitxtom.github.io/ccsf/cnit133/hw5.html#tabs-3">Part 3</option>
+                        </select>
+                    </form>
+
+                    <br>
+
+                    <!-- onclick event handler -->
+                    <form name="menu2">
+                        Select from the list below and click "Go" to navigate to all finished homework (so far).<br>
+                        <select id="hw" name="allhw">
+                            <option value>Select Previous HW</option>
+                            <option value="https://caitxtom.github.io/ccsf/cnit133/hw1.html">Homework 1</option>
+                            <option value="https://caitxtom.github.io/ccsf/cnit133/hw2.html">Homework 2</option>
+                            <option value="https://caitxtom.github.io/ccsf/cnit133/hw3.html">Homework 3</option>
+                            <option value="https://caitxtom.github.io/ccsf/cnit133/hw4.html">Homework 4</option>
+                        </select>
+                        <input type="button"  onclick="onClickEvent(this.form);" value="Go">
+                    </form>
+                </div>
+                <div id="tabs-3">
+                    <h3>Part 3</h3>
+                    <p>Given the following table of data about several of our states from the 2018 census, create a webpage that enables the user to enter a state name (full or just the two characters that represent the state) and have the State Name, State Capital, and population appear in separate input box or textarea. DO NOT USE ALERT!!!</p>
+                    <h3>Output</h3>
+                    <p>Enter a state abbreviation or name in the field below to receive data from the 2018 census</p>
+                    <form name="stateInfo">
+                        Input state:
+                        <input type="text" name="state">
+                        <input type="button" onclick="getStateInfo();" value="State Info">
+                        <div id="info"></div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <!-- <other class="grid-area grid-area-4"></other> -->
+        <footer class="grid-area grid-area-5">
+            Copyright &copy; 2022 Caitlin Tom
+            <br>For questions: <a href="mailto:ctom41@mail.ccsf.edu">Send Email</a> to ctom41@mail.ccsf.edu
+        </footer>
+    </div>
+</body>
+</html>

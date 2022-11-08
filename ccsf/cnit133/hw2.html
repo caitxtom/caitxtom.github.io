@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CT Home</title>
+    <title>CT CNIT 133, HW 2</title>
     <meta charset="utf-8">
     <meta name="description" content="homepage and portfolio for web development projects and courses">
     <meta name="keywords" content="home, portfolio, web development, html, css, javascript">
@@ -25,10 +25,11 @@
                 /* ". other other ." */
                 ". footer footer .";
             margin: 0 auto;
+            width: 50em;
         }
         .grid-area {
             padding: 5px 15px;
-            font-size: 12px;
+            font-size: 15px;
             color: black;
         }
         .grid-area-1 { 
@@ -41,10 +42,11 @@
         }
         .grid-area-2 { 
             grid-area: nav; 
-            display: inline-block;
+            display: inline-block; 
             margin: 0; /*CSS Reset, background-color covers full area*/
             background-color:#b5a1d3; 
             font-size: 15px;
+            text-align: center;
         }
         .grid-area-3 { grid-area: main;  background-color: #b5a1d3; text-align: left; }
         .grid-area-4 { grid-area: other;  background-color: lightgray; text-align: center; } 
@@ -57,20 +59,25 @@
             font-weight: lighter;
             font-size: 15px;
         }
-        .current {  padding: 10px 10px; font-weight: bold; text-decoration: none; }
+        .current { padding: 10px 20px; font-weight: bold; text-decoration: none; }
         
+        nav ul { padding-left: 0 }
         nav ul li { 
             display: inline-block;
-            padding: 10px 3px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding: 10px 10px;
             background-color: #bdacd6; 
-            text-align: center;
+            text-align:center;
             text-decoration: underline;
-            list-style-type: none;
         }
+        a:link, a:visited, a:active { color: black; text-decoration: underline; }
+        a:hover { color: blue; text-decoration: underline; }
         nav ul li a{ padding: 10px;}
         nav ul li a:hover { color: blue; text-decoration: underline; }
-        a:link, a:visited, a:active { color: black; text-decoration: none; }
-        a:hover { color: blue; text-decoration: underline; }
+        main a:link, a:visited, a:active { color: black; text-decoration: underline; }
+        main a:hover { color: blue; text-decoration: underline; }
+        footer a:link, a:visited, a:active { color: black; text-decoration: none; }
     </style>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -157,31 +164,9 @@
             <h4 class="float-right">CCSF CNIT 133 - JavaScript, jQuery, AJAX</h4>
         </header>
         <nav class="grid area grid-area-2">
-            <!-- <ul>
-                <li class="dropdown">
-                    <button class="dropbtn">
-                        <a href="index.html">HOME</a>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="cnit131ahw1.html">CNIT 131A</a>
-                        <a href="cnit132ahw1.html">CNIT 132A</a>
-                        <a href="cnit133hw1.html">CNIT 133</a>
-                    </div>
-                </li>
-                <li><a href="cnit133hw1.html">HW 1</a></li>
-                <li><a href="cnit133hw2.html">HW 2</a></li>
-                <li><a href="cnit133hw3.html">HW 3</a></li>
-                <li><a href="cnit133hw4.html">HW 4</a></li>
-                <li><a href="cnit133hw5.html">HW 5</a></li>
-                <li><a href="cnit133hw6.html">HW 6</a></li>
-                <li><a href="cnit133hw7.html">HW 7</a></li>
-                <li><a href="cnit133hw8.html">HW 8</a></li>
-            </ul> -->
             <ul>
                 <li><a href="../../index.html">Home</a></li>
-                <!-- <li><a href="cnit133ahw1.html">HW 1</a></li> -->
                 <li><a href="hw1.html">HW 1</a></li>
-                <!-- <li class="current">HW 1</li> -->
                 <!-- <li><a href="hw2.html">HW 2</a></li> -->
                 <li class="current">HW 2</li>
                 <li><a href="hw3.html">HW 3</a></li>
