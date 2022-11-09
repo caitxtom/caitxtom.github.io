@@ -154,13 +154,13 @@
         // .selectedIndex returns number option selected
         // ... .options[... .selectedIndex].value to access selected option
         function onChangeEvent(myForm) {
-            // var initial = window.location.pathname;
-            // var mySelected = myForm.hw5parts.options[myForm.hw5parts.selectedIndex].value;
-            // var myDestination = location.replace(initial + mySelected);
-            // window.location = myDestination;
-
-            var myDestination = myForm.hw5parts.options[myForm.hw5parts.selectedIndex].value;
+            var initial = window.location.pathname;
+            var mySelected = myForm.hw5parts.options[myForm.hw5parts.selectedIndex].value;
+            var myDestination = location.replace(initial + mySelected);
             window.location = myDestination;
+
+            // var myDestination = myForm.hw5parts.options[myForm.hw5parts.selectedIndex].value;
+            // window.location = myDestination;
         }
         function onClickEvent(myForm) {
             // var initial = window.location.pathname;
