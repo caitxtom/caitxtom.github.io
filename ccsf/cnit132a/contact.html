@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CT CNIT 133, Home</title>
+    <meta charset="utf-8">
+    <meta name="description" content="homepage and portfolio for web development projects and courses">
+    <meta name="keywords" content="home, portfolio, web development, html, css, javascript">
+    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
+    <link rel="stylesheet" href="cnit132a.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- jQuery -->
+    <script>
+        $( function() {
+            $( "#tabs" ).tabs();
+        } );
+    </script>
+
+    <!-- Google Analytics -->
+
+</head>
+<body>
+    <div class="grid">
+        <header class="grid-area grid-area-1">
+            <h3 class="float-left">CAITLIN TOM</h3>
+            <h4 class="float-right">CCSF CNIT 132A - Advanced HTML and CSS</h4>
+        </header>
+        <nav class="grid area grid-area-2">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="home.html">CNIT 132A Home</a></li>
+                <li><a href="assignments.html">Assignments</a></li>
+                <li class="current">Contact</li>
+            </ul>
+        </nav>
+        <main class="grid-area grid-area-3">
+            <h2 style="text-align:center">Contact Me</h2>
+            <hr>
+            <p>If you would like to contact me, please send an email to <a href="mailto:ctom41@mail.ccsf.edu">ctom41@mail.ccsf.edu</a> or fill out the form below:</p>
+            <div class="form-center">
+                <form method="post" id="myForm" >
+                    <div>
+                        <label for="myName">Full Name:</label>
+                        <input type="text" required name="myName" id="myName">
+                    </div>
+                    <div>
+                        <label for="myEmail">E-mail:</label>
+                        <input type="email" required name="myEmail" id="myEmail">
+                    </div>
+                    <div>
+                        <label for="myComments">Comments:</label>
+                        <textarea name="myComments" id="myComments" rows="2" cols="20"></textarea>
+                    </div>
+                    <div id="mySubmit">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </main>
+        <!-- <other class="grid-area grid-area-4"></other> -->
+        <footer class="grid-area grid-area-5">
+            Copyright &copy; 2022 Caitlin Tom
+            <br>For questions: <a href="mailto:ctom41@mail.ccsf.edu">Send Email</a> to ctom41@mail.ccsf.edu
+            <br><br>
+            <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fcaitxtom.github.io%2Fccsf%2Fcnit133%2Fhw1.html">
+                <img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" alt="HTML5 logo">
+            </a>
+            <a href="http://jigsaw.w3.org/css-validator/validator?lang=en&profile=css3svg&uri=https%3A%2F%2Fcaitxtom.github.io%2Fccsf%2Fcnit133%2Fhw1.html&usermedium=all&vextwarning=&warning=1">
+                <img src="https://www.w3.org/Icons/valid-css-blue.gif" alt="Valid CSS logo">
+            </a>
+        </footer>
+    </div>
+</body>
+</html>

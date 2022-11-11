@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Working with Flexbox</title>
+    <meta charset="utf-8">
+    <meta name="description" content="working with flexbox in CNIT 132A">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            font-weight: bold;
+        }
+
+        header, footer, .left, .content, .extra, .right {
+            padding: 10px;
+        }
+
+        main {
+            display: flex;
+        }
+
+        .left, .content, .extra, .right {
+            flex-basis: 0; /* Each item has same starting point to grow, same as width: 0 */
+            flex-grow: 1; /* Even columns */
+        }
+
+        header, footer, .left, .right {
+            text-align: center;
+        }
+
+        .content, .extra {
+            text-align: left;
+            
+        }
+
+        header {
+            background-color: lightcoral;
+        }
+        .left {
+            background-color: lightgoldenrodyellow;
+        }
+        .content {
+            background-color: darkblue; color: white;
+        }
+        .extra {
+            background-color: lightsalmon;
+            color: blue;
+        }
+        .right {
+            background-color: lightpink;
+        }
+        footer {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <header>This is the header<br>Name of Company</header>
+    <main>
+        <aside class="left">Aside 1 (Left):<br>This may be the menu/navigation</aside>
+        <div class="content">
+            <p>This is the main article of my page! This is the main content of the page. In a 3-column layout, it should be shown in the middle between the aside 1 and aside 2!</p></div>
+        <div class="extra">
+            <p>This extra column was created to have some content as a challenge to adapt the old 3-column layout to a 4-column layout</p></div>
+        <aside class="right">Aside 2 (Right):<br>This may have resources, or may be menu/navigation</aside>
+    </main>
+    <footer>This is the footer<br>Copyright &copy; 2022</footer>
+</body>
+</html>
