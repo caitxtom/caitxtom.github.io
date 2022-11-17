@@ -57,14 +57,14 @@
             font-weight: lighter;
             font-size: 15px;
         }
-        .current { padding: 10px 20px; font-weight: bold; text-decoration: none; }
+        .current { padding: 10px 12px; font-weight: bold; text-decoration: none; }
         
         nav ul { padding-left: 0 }
         nav ul li { 
             display: inline-block;
             margin-top: 5px;
             margin-bottom: 5px;
-            padding: 10px 10px;
+            padding: 10px 2px;
             background-color: #bdacd6; 
             text-align:center;
             text-decoration: underline;
@@ -78,7 +78,12 @@
         main a:hover { color: blue; text-decoration: underline; }
         footer a:link, a:visited, a:active { color: black; text-decoration: none; }
 
-        pre { overflow-x: auto; }
+        pre { 
+            background-color: #eee;
+            border: 1px solid #999;
+            display: block;
+            padding: 15px;
+            white-space: pre-line; }
     </style>
 
     <!-- Google Analytics -->
@@ -109,6 +114,8 @@
                 <li><a href="hw7final.xml">HW 7</a></li>
                 <!-- <li><a href="hw8.html">HW 8</a></li> -->
                 <li class="current">HW 8</li>
+                <li><a href="hw9.html">HW 9</a></li>
+                <li><a href="hw10.html">HW 10</a></li>
             </ul>
         </nav>
         <main class="grid-area grid-area-3">
@@ -124,14 +131,14 @@
             <p>If there was no specification for the title element, the result would include the book element and all elements under it:</p>
             <pre>
                 &lt;book category="children"&gt;
-                    &lt;title lang="en"&gt;Harry Potter&lt;/title&gt;
-                    &lt;author&gt;J K. Rowling&lt;/author&gt;
-                    &lt;price&gt;25.00&lt;/price&gt;
+                    &nbsp;&nbsp;    &lt;title lang="en"&gt;Harry Potter&lt;/title&gt;
+                    &nbsp;&nbsp;    &lt;author&gt;J K. Rowling&lt;/author&gt;
+                    &nbsp;&nbsp;    &lt;price&gt;25.00&lt;/price&gt;
                 &lt;/book&gt;
                 &lt;book category="children"&gt;
-                    &lt;title lang="en"&gt;The Snowy Days&lt;/title&gt;
-                    &lt;author&gt;Ezra Keats&lt;/author&gt;
-                    &lt;price&gt;5.89&lt;/price&gt;
+                    &nbsp;&nbsp;    &lt;title lang="en"&gt;The Snowy Days&lt;/title&gt;
+                    &nbsp;&nbsp;    &lt;author&gt;Ezra Keats&lt;/author&gt;
+                    &nbsp;&nbsp;    &lt;price&gt;5.89&lt;/price&gt;
                 &lt;/book&gt;
             </pre>
             <p>An additional part of XQuery is XQIB, or XQuery In the Browser, which allows you to program client-side web applications with XQuery.  It is meant to be used instead of or alongside JavaScript. An example from the official website <a href="http://www.xqib.org/">http://www.xqib.org/</a> shows how it can be used with the following source code:</p>
@@ -139,15 +146,15 @@
                 &lt;!DOCTYPE html&gt;
                 &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
                     &lt;head&gt;
-                        &lt;title&gt;XQIB: Sample page&lt;/title&gt;
-                        &lt;meta charset="UTF-8"/&gt;
-                        &lt;script type="text/javascript" src="mxqueryjs/mxqueryjs.nocache.js"&gt;&lt;/script&gt;
-                        &lt;script type="application/xquery"&gt;
-                            b:alert("Hello, world!")
-                        &lt;/script&gt;
+                        &nbsp;&nbsp;    &lt;title&gt;XQIB: Sample page&lt;/title&gt;
+                        &nbsp;&nbsp;    &lt;meta charset="UTF-8"/&gt;
+                        &nbsp;&nbsp;    &lt;script type="text/javascript" src="mxqueryjs/mxqueryjs.nocache.js"&gt;&lt;/script&gt;
+                        &nbsp;&nbsp;    &lt;script type="application/xquery"&gt;
+                        &nbsp;&nbsp;&nbsp;&nbsp;    b:alert("Hello, world!")
+                        &nbsp;&nbsp;    &lt;/script&gt;
                     &lt;/head&gt;
                     &lt;body&gt;
-                        &lt;h1&gt;Hello world page.&lt;/h1&gt;
+                        &nbsp;&nbsp;    &lt;h1&gt;Hello world page.&lt;/h1&gt;
                     &lt;/body&gt;
                 &lt;/html&gt;
             </pre>

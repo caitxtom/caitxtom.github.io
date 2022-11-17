@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CT CNIT 131A, HW 9 - Creating SVG Shapes</title>
+    <meta charset="utf-8">
+    <meta name="description" content="homework 9 for ccsf course cnit131a - xml and json, creating SVG shapes to be inserted in an HTML document">
+    <meta name="keywords" content="homework 9, ccsf, portfolio, web development, html, css, javascript, SVG, shape, shapes">
+
+    <style>
+        body {
+            background-color: #bdacd6;
+            font-family: sans-serif;
+        }
+
+        .grid {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas:
+                ". header header ."
+                ". nav nav ."
+                ". main main ."
+                /* ". other other ." */
+                ". footer footer .";
+            margin: 0 auto;
+            width: 50em;
+        }
+        .grid-area {
+            padding: 5px 15px;
+            font-size: 15px;
+            color: black;
+        }
+        .grid-area-1 { 
+            grid-area: header; 
+            padding-top: 0; 
+            padding-bottom: 0;
+            background-color: #bdacd6; 
+            font-weight:bold; 
+            font-size: 15px; 
+        }
+        .grid-area-2 { 
+            grid-area: nav; 
+            display: inline-block; 
+            margin: 0; /*CSS Reset, background-color covers full area*/
+            background-color:#b5a1d3; 
+            font-size: 15px;
+            text-align: center;
+        }
+        .grid-area-3 { grid-area: main;  background-color: #b5a1d3; text-align: left; }
+        .grid-area-4 { grid-area: other;  background-color: lightgray; text-align: center; } 
+        .grid-area-5 { grid-area: footer; background-color: #bdacd6; font-size:12px; text-align: center; }
+
+        .float-left { float: left; }
+        .float-right {
+            float: right;
+            font-style: italic;
+            font-weight: lighter;
+            font-size: 15px;
+        }
+        .current { padding: 10px 12px; font-weight: bold; text-decoration: none; }
+        
+        nav ul { padding-left: 0 }
+        nav ul li { 
+            display: inline-block;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding: 10px 2px;
+            background-color: #bdacd6; 
+            text-align:center;
+            text-decoration: underline;
+        }
+
+        a:link, a:visited, a:active { color: black; text-decoration: underline; }
+        a:hover { color: blue; text-decoration: underline; }
+        nav ul li a{ padding: 10px;}
+        nav ul li a:hover { color: blue; text-decoration: underline; }
+        main a:link, a:visited, a:active { color: black; text-decoration: underline; }
+        main a:hover { color: blue; text-decoration: underline; }
+        footer a:link, a:visited, a:active { color: black; text-decoration: none; }
+
+        
+        pre { 
+            background-color: #eee;
+            border: 1px solid #999;
+            display: block;
+            padding: 15px;
+            white-space: pre-line; }
+        /* pre code {
+            
+            white-space: pre-line;
+        } */
+
+    </style>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7STXW3QWZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-B7STXW3QWZ');
+    </script>
+</head>
+<body>
+    <div class="grid">
+        <header class="grid-area grid-area-1">
+            <h3 class="float-left">CAITLIN TOM</h3>
+            <h4 class="float-right">CCSF CNIT 131A - XML and JSON</h4>
+        </header>
+        <nav class="grid area grid-area-2">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="hw1.html">HW 1</a></li>
+                <li><a href="hw2.xml">HW 2</a></li>
+                <li><a href="hw3.xml">HW 3</a></li>
+                <li><a href="hw4.xml">HW 4</a></li>
+                <li><a href="hw5.xml">HW 5</a></li>
+                <li><a href="hw6.xml">HW 6</a></li>
+                <li><a href="hw7final.xml">HW 7</a></li>
+                <li><a href="hw8.html">HW 8</a></li>
+                <li class="current">HW 9</li>
+                <li><a href="hw10.html">HW 10</a></li>
+            </ul>
+        </nav>
+        <main class="grid-area grid-area-3">
+            <h2 style="text-align:center">Homework 9: SVG Files in CNIT 131A</h2>
+            <hr>
+            <!-- image -->
+            <figure style="text-align:center;">
+                <img src="hw9.svg" alt="image of the SVG file featuring a yellow rectangle with a blue border, a blue circle with a red border, a thin and long horizontal rectangle with a color gradient from yellow to blue, and a thin and long vertical rectangle with a color gradient from blue to red">
+                <figcaption>Figure 1: Single SVG file as an image, containing 4 shapes described below</figcaption>
+            </figure>
+
+            <p>Above is the SVG file embedded in this HTML document as an image. It contains 4 shapes: a yellow rectangle with a blue border, a blue circle with a red border, a thin and long horizontal rectangle with a color gradient from yellow to blue, and a thin and long vertical rectangle with a color gradient from blue to red.  The yellow rectangle used the <code>rect</code> element and the basic attributes for its styling:</p>
+
+            <pre>
+                &lt;rect x="60" y="10" fill="yellow" width="150px" height="120px" stroke="blue" stroke-width="2px"/>
+            </pre>
+
+            <p>The blue circle used the <code>circle</code> element and the basic attributes for its styling:</p>
+
+            <pre>
+                &lt;circle fill="blue" cx="290" cy="70" r="60px" stroke="red" stroke-width="2px"/>
+            </pre>
+
+            <p>Both thin rectangles use the <code>defs</code> element for the linear gradient fill. It allows for the defining of constants or special elements, which in this case is for specific gradient colors that are used for the fill colors in the rectangles:</p>
+
+            <pre>
+                &lt;defs>
+                    &nbsp;&nbsp;    &lt;linearGradient id="LGx" x1="0%" y1="0%" x2="100%" y2="0%">
+                    &nbsp;&nbsp;&nbsp;&nbsp;    &lt;stop offset = "0%" stop-color = "yellow" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;    &lt;stop offset = "100%" stop-color = "blue" />
+                    &nbsp;&nbsp;    &lt;/linearGradient>
+                &lt;/defs>
+            
+                &lt;defs>
+                &nbsp;&nbsp;    &lt;linearGradient id="LGy" x1="0%" y1="0%" x2="0%" y2="100%">
+                &nbsp;&nbsp;&nbsp;&nbsp;    &lt;stop offset = "0%" stop-color = "blue" />
+                &nbsp;&nbsp;&nbsp;&nbsp;    &lt;stop offset = "100%" stop-color = "red" />
+                &nbsp;&nbsp;    &lt;/linearGradient>
+                &lt;/defs>
+                
+                &lt;rect x="60" y="150" width="290px" height="30px" fill="url(#LGx)" />
+                &lt;rect x="10" y="10" width="30px" height="170px" fill="url(#LGy)" />
+            </pre>
+
+            <p>It is important to note that the code is slightly different between the horizontal and vertical rectangles. Initially, the horizontal rectangle did not need the <code>x</code> and <code>y</code> attributes for the <code>linearGradient</code> element. It was only required for the vertical rectangle to define the coordinates. It was added to both gradients to provide futher information on defining its beginning and end points. According to <a href="https://www.w3schools.com/graphics/svg_grad_linear.asp">W3Schools SVG Linear Tutorial</a>, horizontal gradients are when the y coordinatese are equal and the x coordinates differ, and vertical gradients are when the x corrdinates are equal and the y coordinates differ.</p>
+            
+        </main>
+        <!-- <other class="grid-area grid-area-4"></other> -->
+        <footer class="grid-area grid-area-5">
+            Copyright &copy; 2022 Caitlin Tom
+            <br>For questions: <a href="mailto:ctom41@mail.ccsf.edu">Send Email</a> to ctom41@mail.ccsf.edu
+            <br><br>
+            <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fcaitxtom.github.io%2Fccsf%2Fcnit131a%2Fhw8.html">
+                <img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" alt="HTML5 logo">
+            </a>
+            <a href="http://jigsaw.w3.org/css-validator/validator?lang=en&profile=css3svg&uri=https%3A%2F%2Fcaitxtom.github.io%2Fccsf%2Fcnit131a%2Fhw8.html&usermedium=all&vextwarning=&warning=1">
+                <img src="https://www.w3.org/Icons/valid-css-blue.gif" alt="Valid CSS logo">
+            </a>
+        </footer>
+    </div>
+</body>
+</html>
