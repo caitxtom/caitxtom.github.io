@@ -8,6 +8,32 @@
     <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
     <link rel="stylesheet" href="cnit133.css">
 
+    <style>
+        nav ul li ul {
+            position:absolute; 
+            width:80px; 
+            background:#bdacd6; 
+            margin-left: -10px; 
+            margin-top: 10px;
+        }
+        nav ul li ul li {
+            width:60px; 
+            margin: 0px;
+            padding: 10px;
+            background: #bdacd6; 
+        }
+        nav ul li ul li a {
+            display:block;
+            color:#FFF;
+            padding: 0;
+        }
+        nav ul li ul li:hover a {
+            color:blue;
+        }
+        nav ul li ul.fallback { display: none; }
+        nav ul li:hover ul.fallback { display: block; }
+    </style>
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7STXW3QWZ"></script>
     <script>
@@ -26,6 +52,18 @@
         $( function() {
             $( "#tabs" ).tabs();
         } );
+
+        $(document).ready(function(){
+            $('nav li ul').hide().removeClass('fallback');
+            $('nav li').hover(
+                function () {
+                    $('ul', this).stop().slideDown(200);
+                },
+                function () {
+                    $('ul', this).stop().slideUp(200);
+                }
+            );
+        });
     </script>
 
 </head>
@@ -37,7 +75,12 @@
         </header>
         <nav class="grid area grid-area-2">
             <ul>
-                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../index.html">Home</a>
+                    <ul class="fallback">
+                        <li><a href="#">Part 1</a></li>
+                        <li><a href="#">Part 2</a></li>
+                    </ul>
+                </li>
                 <li><a href="hw1.html">HW 1</a></li>
                 <li><a href="hw2.html">HW 2</a></li>
                 <li><a href="hw3.html">HW 3</a></li>
