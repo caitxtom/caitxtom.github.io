@@ -85,7 +85,7 @@
 
                     // Added .toFixed() to pad decimal places with 0 in that case
                     document.forms["myCalculator"].elements["output"].value = (
-                        "Inputted Number: " + inputNum +
+                        "Inputted Number: " + inputNum.toFixed(decimals) +
                         "\nNearest Integer: " + nearestInt +
                         "\nSquare Root, Rounded to Integer: " + squareRoot +
                         "\nNearest Tenths Position: " + nearestTenth.toFixed(1) +
