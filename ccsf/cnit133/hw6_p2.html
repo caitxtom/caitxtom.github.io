@@ -24,14 +24,14 @@
     </style>
 
     <!-- Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7STXW3QWZ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7STXW3QWZ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'G-B7STXW3QWZ');
-    </script> -->
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -84,15 +84,23 @@
                 if (count > 0) {
                     document.forms["myText"].elements["output"].value = ("Number of Occurences of Letter \"" + inputChar + "\": " + count);
                 } else {
+                    // Clear textarea output
+                    document.forms["myText"].elements["output"].value = "";
                     
-                    var myWindowText = "<html>";
-                    myWindowText += "<head><title>Search No Hits</title></head>";
-                    myWindowText += "<body><div><p>Search character \"" + inputChar + "\" is not found in the text string!</p><input type='button' value='Close Window' onclick='window.close()'</div></body>";
-                    myWindowText += "</html>";
-                    var newWindow = window.open("", "hit_result", "left=800,width=300,height=100");
-                    newWindow.focus();
-                    newWindow.document.write(myWindowText);
-                    newWindow.document.close();
+                    // Pop-up Window
+                    var myWindowText = "<html>\n" +
+                        "<head>\n<title>Character Not Found</title>\n</head>\n" +
+                        "<body>\n" +
+                        "<div style='text-align:center;'>\n" + 
+                        "<p> Search character \"" + inputChar + "\" not found in text string!</p>\n" +
+                        "<input type='button' value='Close Window' onclick='window.close()'\n" +
+                        "</div>\n</body>\n" +
+                        "</html>";
+                    var newWindow = window.open("", "search_result", "top=1,left=1,width=300,height=100");
+                    newWindow.opener = null; // for security
+                    newWindow.focus(); //browser focus on window
+                    newWindow.document.write(myWindowText); //html into new window
+                    newWindow.document.close(); //tells browser new window finished loading
                 }
             } else {
                 document.forms["myText"].elements["output"].value = ("ERROR! Please enter valid text in the spaces provided above.");
