@@ -82,13 +82,41 @@
                 }
 
                 if (count > 0) {
-                    document.forms["myText"].elements["output"].value = ("Number of Occurences of Letter &ldquo;" + inputChar + "&ldquo;: " + count);
+                    document.forms["myText"].elements["output"].value = ("Number of Occurences of Letter \"" + inputChar + "\": " + count);
                 } else {
 
                     // new window
+                    var myWindowText = "<!DOCTYPE html>\n";
+                    myWindowText += "<head>\n";
+                    myWindowText += "<title>Popup Window</title>\n";
+                    myWindowText += "</head>\n";
+                    myWindowText += "<body>\n";
+                    myWindowText += "<div style='margin:0 auto;'>\n";
+                    myWindowText += "<p><strong>Your search character \"" + inputChar + "\" is not in the text string!</strong></p>\n";
+                    myWindowText += "<input type='button' value='Close Window' onclick='window.close()'>\n";
+                    myWindowText += "</div>\n";
+                    myWindowText += "</body>\n";
+                    myWindowText += "</html>";
 
+                    // open window on the upperleft of the screen
+
+                    // var newWindow = window.open("", "new_window",
+                    // "top=1,left=1,width=200,height=120");
+
+                    // newWindow.opener = null;   // this is for security!!!
+
+                    // have browser focus on window
+
+                    newWindow.focus();
+
+                    // pump html into to this new opened window
+
+                    newWindow.document.write(myWindowText);
+
+                    // tell browser that newWindow document is finished loading
+
+                    newWindow.document.close();
                 }
-                
             } else {
                 document.forms["myText"].elements["output"].value = ("ERROR! Please enter valid text in the spaces provided above.");
             }
@@ -151,7 +179,7 @@
                         <input type="reset" value="Reset" onClick="window.location.reload();">
                     </p>
                     <p>
-                        Output:<br> <textarea name="output" readonly cols="40" rows="10"></textarea>
+                        Output:<br> <textarea name="output" readonly cols="40" rows="3"></textarea>
                     </p>
                 </form>
             </div>
