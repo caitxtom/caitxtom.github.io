@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CT CNIT 133, HW 6</title>
+    <title>CT CNIT 133, HW 6 Part 2</title>
     <meta charset="utf-8">
     <meta name="description" content="homepage and portfolio for web development projects and courses">
     <meta name="keywords" content="home, portfolio, web development, html, css, javascript">
     <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
     <link rel="stylesheet" href="cnit133.css">
+
+    <style>
+        form {
+            padding: 10px;
+            /* border: 1px solid black; */
+            border: 0;
+            text-align: center;
+        }
+        textarea { resize: none; }
+        input[type='text']{
+            text-align: center;
+            width: 20px;
+        }
+        label.error {display: block; }
+    </style>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7STXW3QWZ"></script>
@@ -26,6 +41,58 @@
         $( function() {
             $( "#tabs" ).tabs();
         } );
+    </script>
+
+    <!-- Validation -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+    <script>
+        // jQuery Validation
+        $(document).ready(function(){
+            $("#myText").validate({
+                rules: {
+                    input_text: { required: true, },
+                    input_char: { required: true, }
+                },
+                messages: {
+                    input_text: "Please enter line(s) of text",
+                    input_char: "Please enter a search character",
+                },
+                errorPlacement: function(error, element) {
+                    if ( element.is(":text") ) {
+                        error.appendTo( element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                }
+            });	  
+        });
+
+        function search() {
+            if ($('#myText').valid()) {
+                var inputText = document.forms["myText"].elements["input_text"].value.toLowerCase();
+
+                var inputChar = document.forms["myText"].elements["input_char"].value.toLowerCase().charAt(0);
+
+                var count = 0;
+                for (let i=0; i<inputText.length; i++) {
+                    if (inputText.charAt(i) == inputChar) {
+                        count++;
+                    }
+                }
+
+                if (count > 0) {
+                    document.forms["myText"].elements["output"].value = ("Number of Occurences of Letter &ldquo;" + inputChar + "&ldquo;: " + count);
+                } else {
+
+                    // new window
+
+                }
+                
+            } else {
+                document.forms["myText"].elements["output"].value = ("ERROR! Please enter valid text in the spaces provided above.");
+            }
+        }
     </script>
 
 </head>
@@ -52,19 +119,42 @@
             <h2 style="text-align:center">Homework 6: Objects</h2>
             <hr>
             <table>
-                <tr>
+                <!-- <tr>
                     <th><a href="hw6_p1.html">Part 1</a></th>
                     <td>Create a web page that contains a script that calculates the square root of a floating-point number, and rounding floating-point numbers.</td>
-                </tr>
+                </tr> -->
                 <tr>
                     <th><a href="hw6_p2.html">Part 2</a></th>
                     <td>Create a web page that contains a script that uses a form that allows the user to input lines of text and a search character, then determine the number of occurances of the search character within the text.</td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <th><a href="hw6_p3.html">Part 3</a></th>
                     <td>Create a webpage that contains a script that uses the jQuery mask for inputting a telephone number as a string in the format (999) 999-9999.</td>
-                </tr>
+                </tr> -->
             </table>
+            <div class="center">
+                <a href="hw6.html" style="font-style:italic;">Go back</a>
+            </div>
+            <hr>
+            <div class="center">
+                <form id="myText" name="myText">
+                    <p>
+                        <label for="input_text">Enter lines of text:<br></label>
+                        <textarea name="input_text" cols="40" rows="10"></textarea>
+                    </p>
+                    <p>
+                        <label for="input_char">Enter a search character:</label>
+                        <input type="text" id="input_char" name="input_char">
+                    </p>
+                    <p>
+                        <input type="button" value="Search" onclick="search()">
+                        <input type="reset" value="Reset" onClick="window.location.reload();">
+                    </p>
+                    <p>
+                        Output:<br> <textarea name="output" readonly cols="40" rows="10"></textarea>
+                    </p>
+                </form>
+            </div>
         </main>
         <!-- <other class="grid-area grid-area-4"></other> -->
         <footer class="grid-area grid-area-5">
