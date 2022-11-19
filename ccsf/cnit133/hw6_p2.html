@@ -74,6 +74,12 @@
 
                 var inputChar = document.forms["myText"].elements["input_char"].value.toLowerCase().charAt(0);
 
+                // new addition
+                if (inputChar.length > 1) {
+                    document.forms["myText"].elements["output"].value = ("ERROR! Please enter ONE search character.");
+                    return;
+                }
+
                 var count = 0;
                 for (let i=0; i<inputText.length; i++) {
                     if (inputText.charAt(i) == inputChar) {
