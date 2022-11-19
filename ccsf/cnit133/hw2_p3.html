@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CT CNIT 133, HW 2</title>
+    <title>CT CNIT 133, HW 2 Part 3</title>
     <meta charset="utf-8">
-    <meta name="description" content="ccsf web development course cnit 133 - javascript, jquery, ajax; homework 2 basic operations">
-    <meta name="keywords" content="web development, html, css, javascript, jquery, ajax">
+    <meta name="description" content="homepage and portfolio for web development projects and courses">
+    <meta name="keywords" content="home, portfolio, web development, html, css, javascript">
     <link rel="stylesheet" href="cnit133.css">
 
     <!-- Google Analytics -->
@@ -16,6 +16,39 @@
 
         gtag('config', 'G-B7STXW3QWZ');
     </script>    
+
+    <!-- Part 3 -->
+    <script>
+        function count() {
+            var number1, number2, number3, number4, number5;
+
+            number1 = document.forms["myform2"].elements["num1"].value;
+            number2 = document.forms["myform2"].elements["num2"].value;
+            number3 = document.forms["myform2"].elements["num3"].value;
+            number4 = document.forms["myform2"].elements["num4"].value;
+            number5 = document.forms["myform2"].elements["num5"].value;
+
+            const array = [number1, number2, number3, number4, number5];
+            var negative = 0;
+            var positive = 0;
+            var zero = 0;
+            var n;
+
+            for (let i = 0; i < 5; i++) {
+                n = parseInt(array[i]);
+                if (n > 0) {
+                    positive++;
+                } else if (n < 0) {
+                    negative++;
+                } else if (n == 0) {
+                    zero++;
+                } else {
+                    document.forms["myform2"].elements["result"].value = ("ERROR! Please enter valid numbers.");
+                }
+            }
+            document.forms["myform2"].elements["result"].value = ("The inputted numbers were " + array[0] + ", " + array[1] + ", " + array[2] + ", " + array[3] + ", " + array[4] + "\n\n# of Positive Numbers: " + positive + "\n# of Negative Numbers: " + negative + "\n# of Zeros: " + zero);
+        }
+    </script>
 </head>
 <body>
     <div class="grid">
@@ -41,20 +74,54 @@
             <h2 style="text-align:center">Homework 2: Basic Operations</h2>
             <hr>
             <table>
-                <tr>
+                <!-- <tr>
                     <th><a href="hw2_p1.html">Part 1</a></th>
                     <td>Create a web page that contains a script that displays in pairs and strong (bold), the letters ab and the numbers 12 and 34 on the same line, with each pair of characters separated by one space. Write the script using document.write statements.</td>
-                </tr>
-                <tr>
-                    <th><a href="hw2_p2.html">Part 2</a></th>
+                </tr> -->
+                <!-- <tr>
+                    <th>Part 2</th>
                     <td>Create a web page that contains a script that inputs three integers via form text boxes and displays the sum, average, and product of the three integers, and the smallest and largest of the three integers.<br>Define a 'Click to Fade Results' button on the form. Use jQuery to define a ready handler that defines a click event handler for the button, such that clicking the button fades the results in the textarea or div where you put the results.</td>
-                </tr>
+                </tr> -->
                 <tr>
-                    <th><a href="hw2_p3.html">Part 3</a></th>
+                    <th>Part 3</th>
                     <td>Create a webpage that contains a script that inputs 5 numbers and determines and displays the count of the negative numbers, the number of positive numbers, and the number of zeros.</td>
                 </tr>
             </table>
-
+            <div class="center">
+                <a href="hw2.html" style="font-style:italic;">Go back to Homework 2</a>
+            </div>
+            <hr>
+            <div class="center">
+                <form name="myform2">
+                    <table class="table-center">
+                        <tr>
+                            <td>First Number:</td>
+                            <td><input type="number" name="num1"></td>
+                        </tr>
+                        <tr>
+                            <td>Second Number:</td>
+                            <td><input type="number" name="num2"></td>
+                        </tr>
+                        <tr>
+                            <td>Third Number:</td>
+                            <td><input type="number" name="num3"></td>
+                        </tr>
+                        <tr>
+                            <td>Fourth Number:</td>
+                            <td><input type="number" name="num4"></td>
+                        </tr>
+                        <tr>
+                            <td>Fifth Number:</td>
+                            <td><input type="number" name="num5"></td>
+                        </tr>
+                    </table>
+                    <br> Results:
+                    <textarea rows="6" cols="50" name="result"></textarea>
+                    <br><br>
+                    <input type="button" onclick="count()" value="SUBMIT">
+                    <input type="reset" value="RESET">
+                </form>
+            </div>
         </main>
         <!-- <other class="grid-area grid-area-4"></other> -->
         <footer class="grid-area grid-area-5">
