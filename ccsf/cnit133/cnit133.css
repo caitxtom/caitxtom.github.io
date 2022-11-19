@@ -70,9 +70,23 @@ main a:link, a:visited, a:active { color: black; text-decoration: underline; }
 main a:hover { color: blue; text-decoration: underline; }
 footer a:link, a:visited, a:active { color: black; text-decoration: none; }
 
-th, td { padding: 10px; text-align: left;}
+/* th, td { padding: 10px; text-align: left;}
 th { width: 10%; font-size: 18px;}
-td { text-align: left; }
+td { text-align: left; } */
+
+form {
+    padding: 10px;
+    /* border: 1px solid black; */
+    border: 0;
+    text-align: center;
+}
+
+textarea { resize: none; }
+
+.table-center {
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* hw1.html */
 .assignments {font-size:15px;}
@@ -98,12 +112,6 @@ input[type='number']{
     /* display:block; */
 }
 
-form {
-    padding: 10px;
-    border: 1px solid black;
-    text-align: center;
-}
-#sex { padding: 5px; border: 1px solid black; }
-#language { padding: 5px; border: 1px solid black; }
+#sex, #language { padding: 5px; }
 
 #info {padding: 10px;text-align: center;}
