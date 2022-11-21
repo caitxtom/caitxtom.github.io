@@ -52,11 +52,11 @@
             $("#myText").validate({
                 rules: {
                     input_text: { required: true, },
-                    input_char: { required: true, }
+                    input_char: { required: true, maxlength: 1, }
                 },
                 messages: {
                     input_text: "Please enter line(s) of text",
-                    input_char: "Please enter a search character",
+                    input_char: "Please enter ONE search character",
                 },
                 errorPlacement: function(error, element) {
                     if ( element.is(":text") ) {
@@ -74,12 +74,6 @@
 
                 var inputChar = document.forms["myText"].elements["input_char"].value.toLowerCase().charAt(0);
                 console.log(inputChar.length);
-
-                // new addition
-                if (inputChar.length > 1) {
-                    document.forms["myText"].elements["output"].value = ("ERROR! Please enter ONE search character.");
-                    return;
-                }
 
                 var count = 0;
                 for (let i=0; i<inputText.length; i++) {
