@@ -3,9 +3,8 @@
 <head>
     <title>CT CNIT 133, HW 3</title>
     <meta charset="utf-8">
-    <meta name="description" content="homepage and portfolio for web development projects and courses">
-    <meta name="keywords" content="home, portfolio, web development, html, css, javascript">
-    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
+    <meta name="description" content="ccsf web development course cnit 133 - javascript, jquery, ajax; homework 3 functions">
+    <meta name="keywords" content="web development, html, css, javascript, jquery, ajax">
     <link rel="stylesheet" href="cnit133.css">
 
     <!-- Google Analytics -->
@@ -16,16 +15,6 @@
         gtag('js', new Date());
 
         gtag('config', 'G-B7STXW3QWZ');
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
-    <!-- jQuery -->
-    <script>
-        $( function() {
-            $( "#tabs" ).tabs();
-        } );
     </script>
 
     <!-- Part 1 -->
@@ -178,7 +167,7 @@
         }
     </script>
 </head>
-<body onload="initialize()">
+<body>
     <div class="grid">
         <header class="grid-area grid-area-1">
             <h3 class="float-left">CAITLIN TOM</h3>
@@ -200,14 +189,30 @@
         </nav>
         <main class="grid-area grid-area-3">
             <h2 style="text-align:center">Homework 3: Functions</h2>
-            <div id="tabs">
-                <ul>
-                    <li><a href="#tabs-1">Part 1</a></li>
-                    <li><a href="#tabs-2">Part 2</a></li>
-                    <li><a href="#tabs-3">Part 3</a></li>
-                    <li><a href="#tabs-4">Part 4</a></li>
-                </ul>
-                <div id="tabs-1">
+            <hr>
+            <table>
+                <tr>
+                    <th><a href="hw3_p1.html">Part 1</a></th>
+                    <td>Create a webpage that contains the heading, Student Grades, and inputs a student's homework average, mid-term exam score, final exam score, and participation (all those grades will be entered as integers).</td>
+                </tr>
+                <tr>
+                    <th><a href="hw3_p2.html">Part 2</a></th>
+                    <td>Create a webpage that contains a script that includes at the top of your form  a text box for the salesperson's name for the user to enter, input that salesperson's items sold and calculates how much the salesperson sold and how much they earned, and then output the results.</td>
+                </tr>
+                <tr>
+                    <th><a href="hw3_p3.html">Part 3</a></th>
+                    <td>Create a webpage that converts the temperature entered by the user, using the right function to convert from Celsius to Fahrenheit or from Fahrenheit to Celsius.</td>
+                </tr>
+                <tr>
+                    <th><a href="hw3_p4.html">Part 4</a></th>
+                    <td>Create a webpage that contains a program that will help an elementary school student learn multiplication.</td>
+                </tr>
+            </table>
+            <div class="center">
+                <a href="hw1.html" style="font-style:italic;">Go back to Assignments List (Homework 1)</a>
+            </div>
+
+                <!-- <div id="tabs-1">
                     <h3>Part 1: Student Grades</h3>
                         <p>Create a webpage that contains the heading, Student Grades, and inputs a student's homework average, mid-term exam score, final exam score, and participation (all those grades will be entered as integers).</p>
                     <article>
@@ -249,8 +254,8 @@
                         <input type="reset" value="RESET">
                     </form>
                     </article>
-                </div>
-                <div id="tabs-2">
+                </div> -->
+                <!-- <div id="tabs-2">
                     <h3>Part 2</h3>
                     <p>Create a webpage that contains a script that includes at the top of your form  a text box for the salesperson's name for the user to enter, input that salesperson's items sold and calculates how much the salesperson sold and how much they earned, and then output the results.</p>
                 <article>
@@ -325,8 +330,8 @@
                         </table>
                     </form>
                 </article>
-                </div>
-                <div id="tabs-3">
+                </div> -->
+                <!-- <div id="tabs-3">
                     <h3>Part 3</h3>
                     <p>Create a webpage that converts the temperature entered by the user, using the right function to convert from C to F or from F to C.</p>
                 <article>
@@ -355,8 +360,8 @@
                         <input type="reset" value="RESET">
                     </form>
                 </article>
-                </div>
-                <div id="tabs-4">
+                </div> -->
+                <!-- <div id="tabs-4">
                     <h3>Part 4</h3>
                     <p>Create a webpage that contains a program that will help an elementary school student learn multiplication.</p>
                 <article>
@@ -383,8 +388,8 @@
                         <input type="button" value="RESET" onclick="initialize()">
                     </form>
                 </article>
-                </div>
-            </div>
+                </div> -->
+        
         </main>
         <!-- <other class="grid-area grid-area-4"></other> -->
         <footer class="grid-area grid-area-5">
