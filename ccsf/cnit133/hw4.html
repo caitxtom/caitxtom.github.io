@@ -3,27 +3,9 @@
 <head>
     <title>CT CNIT 133, HW 4</title>
     <meta charset="utf-8">
-    <meta name="description" content="homepage and portfolio for web development projects and courses">
-    <meta name="keywords" content="home, portfolio, web development, html, css, javascript">
-    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
+    <meta name="description" content="ccsf web development course cnit 133 - javascript, jquery, ajax; homework 4 looping statements">
+    <meta name="keywords" content="web development, html, css, javascript, jquery, ajax">
     <link rel="stylesheet" href="cnit133.css">
-
-    <style>
-        /* hw4.html */
-        .left { text-align: left; }
-        .center { text-align: center; }
-
-        .row { display: inline-flex; }
-        .interest_rate {
-            margin: 20px;
-            border-collapse: collapse;
-            border: 1px solid black;
-        }
-
-        th { background-color: darkred; color: white; padding: 5px;}
-
-        th, tr, td {border: 1px solid black; padding: 5px;}
-    </style>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B7STXW3QWZ"></script>
@@ -35,83 +17,87 @@
         gtag('config', 'G-B7STXW3QWZ');
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- <style>
+        /* hw4.html */
+        .row { display: inline-flex; }
+        .interest_rate {
+            margin: 20px;
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
 
-    <!-- jQuery -->
-    <script>
-        $( function() {
-            $( "#tabs" ).tabs();
-        } );
-    </script>
+        th { background-color: darkred; color: white; padding: 5px;}
 
-    <!-- Part 1 -->
-    <script>
-        $( function() {
-            $( "#draggable1" ).draggable({
-                // cancel: ""
-            });
-            $( "#draggable2" ).draggable({
-                cancel: ""
-            });
-        } );
+        th, tr, td {border: 1px solid black; padding: 5px;}
+    </style> -->
 
-        function calculate_fourth() {
-            var product = 1;
-            var sum = 0;
-
-            var prod_output = "";
-            var sum_output = "";
-
-            for (let i = 5; i <= 21; i += 4) {
-                product *= i; 
-                sum += i;
-                
-                if (i < 21) {
-                    prod_output += i + " * ";
-                    sum_output += i + " + ";
-                } else {
-                    prod_output += i + " = " + product.toLocaleString();
-                    sum_output += i + " = " + sum.toLocaleString();
+        <!-- Part 1 -->
+        <script>
+            $( function() {
+                $( "#draggable1" ).draggable({
+                    // cancel: ""
+                });
+                $( "#draggable2" ).draggable({
+                    cancel: ""
+                });
+            } );
+    
+            function calculate_fourth() {
+                var product = 1;
+                var sum = 0;
+    
+                var prod_output = "";
+                var sum_output = "";
+    
+                for (let i = 5; i <= 21; i += 4) {
+                    product *= i; 
+                    sum += i;
+                    
+                    if (i < 21) {
+                        prod_output += i + " * ";
+                        sum_output += i + " + ";
+                    } else {
+                        prod_output += i + " = " + product.toLocaleString();
+                        sum_output += i + " = " + sum.toLocaleString();
+                    }
                 }
+                
+                document.getElementById("draggable1").innerHTML = "The product of every fourth integer from 5 to 21 inclusive: <br>" + prod_output + "<br><br>The sum of every fourth integer from 5 to 21 inclusive: <br>" + sum_output;
             }
-            
-            document.getElementById("draggable1").innerHTML = "The product of every fourth integer from 5 to 21 inclusive: <br>" + prod_output + "<br><br>The sum of every fourth integer from 5 to 21 inclusive: <br>" + sum_output;
-        }
-
-        function calculate_third() {
-            var product = 1;
-            var sum = 0;
-            var i = 3;
-
-            var prod_output = "";
-            var sum_output = "";
-
-            do {
-                product *= i; 
-                sum += i;
-                
-                if (i < 21) {
-                    prod_output += i + " * ";
-                    sum_output += i + " + ";
-                } else {
-                    prod_output += i + " = " + product.toLocaleString();
-                    sum_output += i + " = " + sum.toLocaleString();
-                }
-
-                i += 3;
-            } while (i <= 21)
-
-            document.getElementById("draggable2").innerHTML = "The product of every third integer  from 3 to 21 inclusive: <br>" + prod_output + "<br><br>The sum of every third integer  from 3 to 21 inclusive: <br>" + sum_output;
-        }
-    </script>
-
-    <!-- Part 2 -->
-    <script>
-        $(function(){
-            $("tr:nth-child(even)").css("background-color", "lightcoral")
-        });
-    </script>
+    
+            function calculate_third() {
+                var product = 1;
+                var sum = 0;
+                var i = 3;
+    
+                var prod_output = "";
+                var sum_output = "";
+    
+                do {
+                    product *= i; 
+                    sum += i;
+                    
+                    if (i < 21) {
+                        prod_output += i + " * ";
+                        sum_output += i + " + ";
+                    } else {
+                        prod_output += i + " = " + product.toLocaleString();
+                        sum_output += i + " = " + sum.toLocaleString();
+                    }
+    
+                    i += 3;
+                } while (i <= 21)
+    
+                document.getElementById("draggable2").innerHTML = "The product of every third integer  from 3 to 21 inclusive: <br>" + prod_output + "<br><br>The sum of every third integer  from 3 to 21 inclusive: <br>" + sum_output;
+            }
+        </script>
+    
+        <!-- Part 2 -->
+        <script>
+            $(function(){
+                $("tr:nth-child(even)").css("background-color", "lightcoral")
+            });
+        </script>
 </head>
 <body>
     <div class="grid">
@@ -134,12 +120,26 @@
         </nav>
         <main class="grid-area grid-area-3">
             <h2 style="text-align:center">Homework 4: Looping Statements</h2>
-            <div id="tabs">
-                <ul>
-                    <li><a href="#tabs-1">Part 1</a></li>
-                    <li><a href="#tabs-2">Part 2</a></li>
-                </ul>
-                <div id="tabs-1">
+            <hr>
+            <table>
+                <tr>
+                    <th><a href="hw4_p1.html">Part 1</a></th>
+                    <td>(a) Create a webpage that contains a script, using the for statement, that calculates the product and sum of every fourth integer from 5 to 21 inclusive and then displays the results, along with some accompanying text.
+                    <br>
+                    (b) On the same webpage as Part 1a, create a script, using the while or do while statement, that calculates the product and sum of every third integer from 3 to 21 inclusive an then displays the results, along with some accompanying text.
+                    </td>
+                </tr>
+                <tr>
+                    <th><a href="hw4_p2.html">Part 2</a></th>
+                    <td>Create a webpage that contains a script that will calculate compound interest on a principal of $1000 for interest rates of 5, 6, and 7%, for years 1 through 10.
+                    <br>
+                    Use jQuery or you can use CSS to alternate the background colors of the rows of the table but notice that the first row should be maroon (dark red and the font should be white).</td>
+                </tr>
+            </table>
+            <div class="center">
+                <a href="hw1.html" style="font-style:italic;">Go back to Assignments List (Homework 1)</a>
+            </div>
+                <!-- <div id="tabs-1">
                     <h3>Part 1</h3>
                     <form name="myform">
                         <p><span style="text-decoration: underline;">Part 1a</span>: Create a webpage that contains a script, using the for statement, that calculates the product and sum of every fourth integer from 5 to 21 inclusive and then displays the results, along with some accompanying text.</p>
@@ -162,8 +162,8 @@
                         
                     </form>
                     <p>jQuery was used to implement dragging for the results boxes!</p>
-                </div>
-                <div id="tabs-2">
+                </div> -->
+                <!-- <div id="tabs-2">
                     <h3>Part 2: Compound Interest</h3>
                     <p>Create a webpage that contains a script that will calculate compound interest on a principal of $1000 for interest rates of 5, 6, and 7%, for years 1 through 10.</p>
                     <p>Use jQuery or you can use CSS to alternate the background colors of the rows of the table but notice that the first row should be maroon (dark red and the font should be white).</p>
@@ -199,8 +199,8 @@
                             rate += 0.01;
                         }
                     </script>
-                </div>
-            </div>
+                </div> -->
+
         </main>
         <!-- <other class="grid-area grid-area-4"></other> -->
         <footer class="grid-area grid-area-5">
