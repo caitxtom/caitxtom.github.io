@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CT CNIT 133, HW 5</title>
+    <title>CT CNIT 133, HW 5 Part 3</title>
     <meta charset="utf-8">
-    <meta name="description" content="ccsf web development course cnit 133 - javascript, jquery, ajax; homework 5 arrays">
+    <meta name="description" content="ccsf web development course cnit 133 - javascript, jquery, ajax; homework 5 part 3 arrays">
     <meta name="keywords" content="web development, html, css, javascript, jquery, ajax">
     <link rel="stylesheet" href="cnit133.css">
 
@@ -15,6 +15,48 @@
         gtag('js', new Date());
 
         gtag('config', 'G-B7STXW3QWZ');
+    </script>
+
+    <!-- Part 3 -->
+    <script>
+        var statesArray = [
+            ["AL","ALABAMA","Montgomery","4,887,871"],
+            ["AK","ALASKA","Juneau","737,438"],
+            ["AZ","ARIZONA","Phoenix","7,171,646"],
+            ["AR","ARKANSAS","Little Rock","3,010,825"],
+            ["CA","CALIFORNIA","Sacramento","39,557,045"],
+            ["CO","COLORADO","Denver","5,694,564"]
+        ];
+
+        function getStateInfo() {
+            var input = (document.forms["stateInfo"].elements["state"].value).toUpperCase();
+            var foundState = false;
+            var row;
+
+            // array dimensions: [6][4]
+            // traversed all elements even though only need first two columns [i][0 || 1]
+            for (var i=0; i<statesArray.length; i++) {
+                for (var j=0; j<statesArray[0].length; j++) {
+                    if (statesArray[i][j] == input) {
+                        foundState = true;
+                        document.getElementById("info").innerHTML = (
+                            "<strong>Thanks for your inquiry, here is the information you requested</strong>" +
+                            "<br><br>State abbr: " + statesArray[i][0] +
+                            "<br>State name: " + statesArray[i][1] + 
+                            "<br>Capital: " + statesArray[i][2] + 
+                            "<br>Population: " + statesArray[i][3]
+                            );
+                        break;
+                    }
+                }
+                if (foundState == true) {
+                    break;
+                }
+            }
+            if (foundState == false) {
+                document.getElementById("info").innerHTML = "<span style=\"color:red;font-weight:bold\">State not found!<br>Please enter a state from the given list.</span>";
+            }
+        }
     </script>
 </head>
 <body>
@@ -41,20 +83,22 @@
             <hr>
             <table>
                 <tr>
-                    <th><a href="hw5_p1.html">Part 1</a></th>
-                    <td>Create a webpage containing a form that displays an input text box, radio buttons, checkboxes, and select items; along with a script that executes form validation.</td>
-                </tr>
-                <tr>
-                    <th><a href="hw5_p2.html">Part 2</a></th>
-                    <td>Create a 2nd webpage that contains a script that utilizes 2 pulldown menus. The first one should utilize an onchange event handler. The second should utilize a button with an onclick event handler to navigate to a page after an option is selected. Each pulldown menu should include at least 3 URL destinations.</td>
-                </tr>
-                <tr>
                     <th><a href="hw5_p3.html">Part 3</a></th>
                     <td>Given the following table of data about several of our states from the 2018 census, create a webpage that enables the user to enter a state name (full or just the two characters that represent the state) and have the State Name, State Capital, and population appear in separate input box or textarea. DO NOT USE ALERT!!!</td>
                 </tr>
             </table>
             <div class="center">
-                <a href="hw1.html" style="font-style:italic;">Go back to Assignments List (Homework 1)</a>
+                <a href="hw5.html" style="font-style:italic;">Go back to Homework 5</a>
+            </div>
+            <hr>
+            <div class="center">
+                <p>Enter a state abbreviation or name in the field below to receive data from the 2018 census</p>
+                <form name="stateInfo">
+                    Input state:
+                    <input type="text" name="state">
+                    <input type="button" onclick="getStateInfo();" value="State Info">
+                    <div id="info"></div>
+                </form>
             </div>
         </main>
         <!-- <other class="grid-area grid-area-4"></other> -->
