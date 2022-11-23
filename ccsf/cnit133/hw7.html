@@ -3,35 +3,28 @@
 <head>
     <title>CT CNIT 133, HW 7</title>
     <meta charset="utf-8">
-    <meta name="description" content="homepage and portfolio for web development projects and courses">
-    <meta name="keywords" content="home, portfolio, web development, html, css, javascript">
-    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
+    <meta name="description" content="ccsf web development course cnit 133 - javascript, jquery, ajax; homework 7 objects">
+    <meta name="keywords" content="web development, html, css, javascript, jquery, ajax">
     <link rel="stylesheet" href="cnit133.css">
 
     <style>
-        nav ul li ul {
-            position:absolute; 
-            width:80px; 
-            background:#bdacd6; 
-            margin-left: -10px; 
-            margin-top: 10px;
+        h5 {
+            background: url(open.png) no-repeat 0 11px;
+            padding: 10px 0 0 25px;
+            cursor: pointer;
         }
-        nav ul li ul li {
-            width:60px; 
-            margin: 0px;
-            padding: 10px;
-            background: #bdacd6; 
+        h5.close {
+            background-image: url(close.png);
         }
-        nav ul li ul li a {
-            display:block;
-            color:#FFF;
-            padding: 0;
+        .answer {
+            margin-left: 25px;
+            margin-top: -20px;
         }
-        nav ul li ul li:hover a {
-            color:blue;
+        .partnum {
+            margin-top: 12px;
+            text-decoration: underline;
+            font-size: 18px;
         }
-        nav ul li ul.fallback { display: none; }
-        nav ul li:hover ul.fallback { display: block; }
     </style>
 
     <!-- Google Analytics -->
@@ -44,26 +37,49 @@
         gtag('config', 'G-B7STXW3QWZ');
     </script>
 
+    <script src="http://code.jquery.com/jquery-1.7.1.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
-    <!-- jQuery -->
     <script>
-        $( function() {
-            $( "#tabs" ).tabs();
-        } );
+        // $(document).ready(function() {
+        //     $('.answer').hide();
+        //     $('main h5').click(function() {
 
-        $(document).ready(function(){
-            $('nav li ul').hide().removeClass('fallback');
-            $('nav li').hover(
-                function () {
-                    $('ul', this).stop().slideDown(200);
-                },
-                function () {
-                    $('ul', this).stop().slideUp(200);
+        //         $(this).next('.answer').toggle()
+        //         if($('.answer:visible').length == 0) {
+        //                 $(this).removeClass('close')
+        //         } else {
+        //                 $(this).addClass('close')
+        //         };
+        //     });
+        // });
+
+        $(document).ready(function () {
+            $('.answer').hide();
+
+            // Attach a click handler to the h2 elements.
+            $("main h5").click(function () {
+                // Save the h2 element that was clicked
+                // as well as the following answer element.
+                var h5 = $(this);
+                var answer = h5.next(".answer");
+
+                if (answer.css("display") == "none") {
+                    // If the answer is currently not displayed,
+                    // display it with a sliding down motion,
+                    // and when done, add the "close" class to the h2 element.
+                    answer.slideDown(function () {
+                        h5.addClass("close");
+                    });
+                } else {
+                    // Otherwise, fade the answer out, and when done,
+                    // remove the "close" class from the h2 element.
+                    answer.fadeOut(function () {
+                        h5.removeClass("close");
+                    });
                 }
-            );
-        });
+            });
+        }); // end ready
     </script>
 
 </head>
@@ -75,12 +91,7 @@
         </header>
         <nav class="grid area grid-area-2">
             <ul>
-                <li><a href="../../index.html">Home</a>
-                    <ul class="fallback">
-                        <li><a href="#">Part 1</a></li>
-                        <li><a href="#">Part 2</a></li>
-                    </ul>
-                </li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="hw1.html">HW 1</a></li>
                 <li><a href="hw2.html">HW 2</a></li>
                 <li><a href="hw3.html">HW 3</a></li>
@@ -92,10 +103,35 @@
             </ul>
         </nav>
         <main class="grid-area grid-area-3">
-            <h2 style="text-align:center">Homework 7</h2>
+            <h2 style="text-align:center">Homework 7: Object Model and Miscellaneous jQuery</h2>
             <hr>
-            <h3>Coming soon...</h3>
-            <p>Go back to <a href="hw1.html">Assignments List</a></p>
+            <!-- <table>
+                <tr>
+                    <th><a href="hw7_p1.html">Part 1</a></th>
+                    <td>Create a webpage in which users are allowed to select a page layout and formatting through the use of the className property.</td>
+                </tr>
+                <tr>
+                    <th><a href="hw7_p2.html">Part 2</a></th>
+                    <td>Write a script that displays a top navigation bar containing a link to your Homework 1 and five other links that will be to the cover page for each of your Homework 2 - Homework 6. When you mouseover on any of these other links then display a drop-down menu that contains the links of their homework parts (part 1, part 2, etc).</td>
+                </tr>
+            </table> -->
+            <h5 class="partnum">Part 1</h5>
+            <div class="answer">
+                <p>Create a webpage in which users are allowed to select a page layout and formatting through the use of the className property.</p>
+                <p><a href="hw7_p1.html" style="font-style:italic;">Go to Part 1</a></p>
+            </div>
+            <h5 class="partnum">Part 2</h5>
+            <div class="answer">
+                <p>Write a script that displays a top navigation bar containing a link to your Homework 1 and five other links that will be to the cover page for each of your Homework 2 - Homework 6. When you mouseover on any of these other links then display a drop-down menu that contains the links of their homework parts (part 1, part 2, etc).</p>
+                <p><a href="hw7_p2.html" style="font-style:italic;">Go to Part 2</a></p>
+            </div>
+            <div class="center">
+                <a href="hw1.html" style="font-style:italic;">Go back to Assignments List (Homework 1)</a>
+            </div>
+            <hr>
+            <div class="center">
+                <p><strong>This cover page for Homework 7 contains the only version of the parts list with a toggling description of each part using jQuery.</strong></p>
+            </div>
         </main>
         <!-- <other class="grid-area grid-area-4"></other> -->
         <footer class="grid-area grid-area-5">
