@@ -1,0 +1,32 @@
+[
+    {
+        "firstName": "Janet",
+        "lastName": "Doe",
+        "profession": "Engineer"
+    },
+    {
+        "firstName": "Anna",
+        "lastName": "Smith",
+        "profession": "Instructor"
+    },
+    {
+        "firstName": "Peter",
+        "lastName": "Jackson",
+        "profession": "Writer"
+    },
+    {
+        "firstName": "Edgard",
+        "lastName": "Lambart",
+        "profession": "Engineer"
+    },
+    {
+        "firstName": "Lucia",
+        "lastName": "Rodriguez",
+        "profession": "Journalist"
+    },
+    {
+        "firstName": "Mark",
+        "lastName": "Douglas",
+        "profession": "Doctor"
+    }
+]

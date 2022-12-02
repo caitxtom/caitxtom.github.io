@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <employee>
+        <firstName>Janet</firstName>
+		<lastName>Doe</lastName>
+		<profession>Engineer</profession>
+	</employee>
+    <employee>
+        <firstName>Anna</firstName>
+		<lastName>Smith</lastName>
+		<profession>Instructor</profession>
+    </employee>
+    <employee>
+        <firstName>Peter</firstName>
+		<lastName>Jackson</lastName>
+		<profession>Writer</profession>
+    </employee>
+    <employee>
+        <firstName>Edgard</firstName>
+		<lastName>Lambart</lastName>
+		<profession>Engineer</profession>
+	</employee>
+    <employee>
+        <firstName>Lucia</firstName>
+		<lastName>Rodriguez</lastName>
+		<profession>Journalist</profession>
+	</employee>
+    <employee>
+        <firstName>Mark</firstName>
+		<lastName>Douglas</lastName>
+		<profession>Doctor</profession>
+	</employee>
+</employees>
